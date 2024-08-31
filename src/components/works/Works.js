@@ -5,19 +5,20 @@ import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextDecrypt } from "../content/TextDecrypt";
 
-import './Works.css';
+import "./Works.css";
 
 // Import ../../assets/recentprojects/
-import Portfolio from '../../assets/recentprojects/react-portfolio.png';
-import Veritru from '../../assets/recentprojects/veritru.png';
-import Lofo from '../../assets/recentprojects/lofo.png';
-import Startup from '../../assets/recentprojects/startup.png';
-import Lacalle from '../../assets/recentprojects/lacalle.png';
+import API from "../../assets/recentprojects/lacalle.png";
+import Concurrency from "../../assets/recentprojects/lofo.png";
+import Microservices from "../../assets/recentprojects/startup.png";
+import Testing from "../../assets/recentprojects/veritru.png";
+import Database from "../../assets/recentprojects/lacalle.png";
+
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    maxWidth: '100vw',
-    marginTop: '3em',
+    maxWidth: "100vw",
+    marginTop: "3em",
     marginBottom: "auto",
   },
 }));
@@ -25,48 +26,45 @@ const useStyles = makeStyles((theme) => ({
 export const Works = () => {
   const classes = useStyles();
   const [projects, setProjects] = useState([
-    { 
+    {
       id: 1,
-      title: 'React Portfolio', 
-      description: `Designed and developed a ReactJS portfolio 
-      with fancy 3D animations using Three.js for 
-      the background element.`,
-      alter: 'React Portfolio',
-      image: `${Portfolio}`,
+      title: "API Development",
+      description: `Developed RESTful APIs for handling user authentication, CRUD operations, and data processing.
+Implemented pagination and filtering to efficiently manage large datasets in API responses`,
+      alter: "API Development",
+      image: `${API}`,
     },
-    { 
+    {
       id: 2,
-      title: 'VeriTru Project', 
-      description: `An advocacy project website built using
-      MEAN stack with fact-checking tool to promote actions against
-      fake news.`,
-      alter: 'VeriTru Project',
-      image: `${Veritru}`,
+      title: "Microservices",
+      description: `Developed microservices using Go, following best practices like Domain-Driven Design (DDD) and Clean Architecture.
+Implemented communication between microservices using gRPC and message queues like Kafka..`,
+      alter: "Microservices",
+      image: `${Microservices}`,
     },
-    { 
+    {
       id: 3,
-      title: 'LoFo Project', 
-      description: `Logistics and Forwarding website built using
-      ReactJS to design and develop its front-end.`,
-      alter: 'LoFo Project',
-      image: `${Lofo}`,
+      title: "Concurrency",
+      description: `Built a concurrent data processing system using Goroutines and Channels to handle large-scale data efficiently.
+Designed a pipeline for processing real-time data streams, ensuring high performance and low latency.`,
+      alter: "Concurrency",
+      image: `${Concurrency}`,
     },
-    { 
+    {
       id: 4,
-      title: 'Startup Project', 
-      description: `A website portfolio project for the Startup Dev Team
-      built using MEVN stack to demonstrate the CRUD capabilities of the tech stack.`,
-      alter: 'Startup Project',
-      image: `${Startup}`,
+      title: "Database Integration",
+      description: `Integrated SQL databases with Go applications using SQLBoiler for ORM functionality.
+Developed complex queries for data retrieval, including joins, filtering, and aggregation..`,
+      alter: "Database Integration",
+      image: `${Database}`,
     },
-    { 
+    {
       id: 5,
-      title: 'LaCalle Cafe', 
-      description: `A website project for the La Calle Cafe business
-      built using Wordpress and PHP with integrated SEO tools to help
-      the business ramp up its prospects and lead generation.`,
-      alter: 'Startup Project',
-      image: `${Lacalle}`,
+      title: "Testing and Mocking",
+      description: `Wrote extensive unit and integration tests for Go applications, achieving high code coverage.
+Utilized mocking libraries to isolate and test components independently, including database interactions and external API calls..`,
+      alter: "Testing and Mocking",
+      image: `${Testing}`,
     },
   ]);
 
@@ -74,17 +72,15 @@ export const Works = () => {
     <section id="works">
       <Container component="main" className={classes.main} maxWidth="md">
         {projects.map((project) => (
-          <div className="project" key={ project.id }>
+          <div className="project" key={project.id}>
             <div className="__img_wrapper">
-              <img src={ project.image } alt={ project.alter }/>
+              <img src={project.image} alt={project.alter} />
             </div>
             <div className="__content_wrapper">
               <h3 className="title">
-                <TextDecrypt text={ project.id + '. ' + project.title } />
+                <TextDecrypt text={project.id + ". " + project.title} />
               </h3>
-              <p className="description">
-                { project.description }
-              </p>
+              <p className="description">{project.description}</p>
             </div>
           </div>
         ))}
